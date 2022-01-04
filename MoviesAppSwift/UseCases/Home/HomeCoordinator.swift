@@ -23,5 +23,4 @@ class HomeCoordinator: Coordinator{
         navigationController.setViewControllers([vc], animated: false)
     }
     
-    
 }

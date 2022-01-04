@@ -9,4 +9,5 @@ import Foundation
 
 final class MoviesListViewModel{
     
+    var movies = [Movie]()
 }
