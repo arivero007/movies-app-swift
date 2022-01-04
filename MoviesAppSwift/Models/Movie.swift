@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Movie
-struct Result: Codable{
+struct Results: Codable{
     let page: Int
     let movies: [Movie]
     let totalMovies, totalPages: Int
@@ -16,8 +16,8 @@ struct Result: Codable{
     enum CodingKeys: String, CodingKey {
         case page
         case movies = "results"
-        case totalMovies = "totalResults"
-        case totalPages
+        case totalMovies = "total_results"
+        case totalPages = "total_pages"
     }
 }
 
@@ -30,10 +30,10 @@ struct Movie: Codable {
     let voteAverage: Double
     
     enum CodingKeys: String, CodingKey {
-        case posterPath
+        case posterPath = "poster_path"
         case overview
         case id
         case title
-        case voteAverage
+        case voteAverage = "vote_average"
     }
 }

@@ -19,7 +19,7 @@ class HomeCoordinator: Coordinator{
     func start() {
         let vc = MoviesListViewController(nibName: "MoviesListViewController", bundle: nil)
         vc.coordinator = self
-        vc.viewModel = MoviesListViewModel()
+        vc.viewModel = MoviesListViewModel(service: MoviesManager())
         navigationController.setViewControllers([vc], animated: false)
     }
     

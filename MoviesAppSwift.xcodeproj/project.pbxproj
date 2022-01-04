@@ -23,6 +23,12 @@
 		EB9EAA842784C079006101C6 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAA822784C079006101C6 /* MovieTableViewCell.swift */; };
 		EB9EAA852784C079006101C6 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9EAA832784C079006101C6 /* MovieTableViewCell.xib */; };
 		EB9EAAF72784CC9B006101C6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAAF62784CC9B006101C6 /* Constants.swift */; };
+		EB9EAAF92784D09E006101C6 /* MovieServiceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAAF82784D09E006101C6 /* MovieServiceWrapper.swift */; };
+		EB9EAAFB2784D0F3006101C6 /* MovieServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAAFA2784D0F3006101C6 /* MovieServiceError.swift */; };
+		EB9EAAFE2784D267006101C6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EB9EAAFD2784D267006101C6 /* Alamofire */; };
+		EB9EAB012784D537006101C6 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAB002784D537006101C6 /* Error+Extensions.swift */; };
+		EB9EAB052784D67E006101C6 /* MoviesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAB042784D67E006101C6 /* MoviesProtocol.swift */; };
+		EB9EAB082784D7ED006101C6 /* MoviesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAB072784D7ED006101C6 /* MoviesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +69,11 @@
 		EB9EAA822784C079006101C6 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		EB9EAA832784C079006101C6 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		EB9EAAF62784CC9B006101C6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EB9EAAF82784D09E006101C6 /* MovieServiceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceWrapper.swift; sourceTree = "<group>"; };
+		EB9EAAFA2784D0F3006101C6 /* MovieServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceError.swift; sourceTree = "<group>"; };
+		EB9EAB002784D537006101C6 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
+		EB9EAB042784D67E006101C6 /* MoviesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesProtocol.swift; sourceTree = "<group>"; };
+		EB9EAB072784D7ED006101C6 /* MoviesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9EAAFE2784D267006101C6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				EB9EAAF62784CC9B006101C6 /* Constants.swift */,
+				EB9EAAFF2784D527006101C6 /* Extensions */,
 				EB9EAA7B2784BD14006101C6 /* Coordinator */,
 			);
 			path = Utils;
@@ -191,6 +204,7 @@
 		EB9EAA7D2784BDB4006101C6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				EB9EAB022784D635006101C6 /* MovieService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -199,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				EB9EAA7F2784BF52006101C6 /* Movie.swift */,
+				EB9EAAFA2784D0F3006101C6 /* MovieServiceError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +225,40 @@
 				EB9EAA832784C079006101C6 /* MovieTableViewCell.xib */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		EB9EAAFF2784D527006101C6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB9EAB002784D537006101C6 /* Error+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EB9EAB022784D635006101C6 /* MovieService */ = {
+			isa = PBXGroup;
+			children = (
+				EB9EAAF82784D09E006101C6 /* MovieServiceWrapper.swift */,
+				EB9EAB062784D7CE006101C6 /* Managers */,
+				EB9EAB032784D651006101C6 /* Protocols */,
+			);
+			path = MovieService;
+			sourceTree = "<group>";
+		};
+		EB9EAB032784D651006101C6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EB9EAB042784D67E006101C6 /* MoviesProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EB9EAB062784D7CE006101C6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EB9EAB072784D7ED006101C6 /* MoviesManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +277,9 @@
 			dependencies = (
 			);
 			name = MoviesAppSwift;
+			packageProductDependencies = (
+				EB9EAAFD2784D267006101C6 /* Alamofire */,
+			);
 			productName = MoviesAppSwift;
 			productReference = EB9EA99B2784440F006101C6 /* MoviesAppSwift.app */;
 			productType = "com.apple.product-type.application";
@@ -300,6 +352,9 @@
 				Base,
 			);
 			mainGroup = EB9EA9922784440F006101C6;
+			packageReferences = (
+				EB9EAAFC2784D267006101C6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = EB9EA99C2784440F006101C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -346,10 +401,15 @@
 			files = (
 				EB9EAA802784BF52006101C6 /* Movie.swift in Sources */,
 				EB9EA99F2784440F006101C6 /* AppDelegate.swift in Sources */,
+				EB9EAB012784D537006101C6 /* Error+Extensions.swift in Sources */,
+				EB9EAAF92784D09E006101C6 /* MovieServiceWrapper.swift in Sources */,
 				EB9EA9A12784440F006101C6 /* SceneDelegate.swift in Sources */,
 				EB9EAA782784BA35006101C6 /* HomeCoordinator.swift in Sources */,
+				EB9EAB082784D7ED006101C6 /* MoviesManager.swift in Sources */,
+				EB9EAB052784D67E006101C6 /* MoviesProtocol.swift in Sources */,
 				EB9EAA7A2784BBF3006101C6 /* MoviesListViewModel.swift in Sources */,
 				EB9EAA702784B724006101C6 /* Coordinator.swift in Sources */,
+				EB9EAAFB2784D0F3006101C6 /* MovieServiceError.swift in Sources */,
 				EB9EAA842784C079006101C6 /* MovieTableViewCell.swift in Sources */,
 				EB9EAA752784B8E4006101C6 /* MoviesListViewController.swift in Sources */,
 				EB9EAAF72784CC9B006101C6 /* Constants.swift in Sources */,
@@ -680,6 +740,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EB9EAAFC2784D267006101C6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EB9EAAFD2784D267006101C6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB9EAAFC2784D267006101C6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB9EA9932784440F006101C6 /* Project object */;
 }
