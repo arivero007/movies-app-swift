@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB7D68E927858A6A00488DEC /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D68E827858A6A00488DEC /* Observer.swift */; };
+		EB7D695B278592CD00488DEC /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D695A278592CD00488DEC /* UIImageView+Extensions.swift */; };
 		EB9EA99F2784440F006101C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EA99E2784440F006101C6 /* AppDelegate.swift */; };
 		EB9EA9A12784440F006101C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EA9A02784440F006101C6 /* SceneDelegate.swift */; };
 		EB9EA9A827844411006101C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9EA9A727844411006101C6 /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB7D68E827858A6A00488DEC /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		EB7D695A278592CD00488DEC /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		EB9EA99B2784440F006101C6 /* MoviesAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9EA99E2784440F006101C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB9EA9A02784440F006101C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				EB9EAAF62784CC9B006101C6 /* Constants.swift */,
+				EB7D68E827858A6A00488DEC /* Observer.swift */,
 				EB9EAAFF2784D527006101C6 /* Extensions */,
 				EB9EAA7B2784BD14006101C6 /* Coordinator */,
 			);
@@ -231,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				EB9EAB002784D537006101C6 /* Error+Extensions.swift */,
+				EB7D695A278592CD00488DEC /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -408,10 +414,12 @@
 				EB9EAB082784D7ED006101C6 /* MoviesManager.swift in Sources */,
 				EB9EAB052784D67E006101C6 /* MoviesProtocol.swift in Sources */,
 				EB9EAA7A2784BBF3006101C6 /* MoviesListViewModel.swift in Sources */,
+				EB7D68E927858A6A00488DEC /* Observer.swift in Sources */,
 				EB9EAA702784B724006101C6 /* Coordinator.swift in Sources */,
 				EB9EAAFB2784D0F3006101C6 /* MovieServiceError.swift in Sources */,
 				EB9EAA842784C079006101C6 /* MovieTableViewCell.swift in Sources */,
 				EB9EAA752784B8E4006101C6 /* MoviesListViewController.swift in Sources */,
+				EB7D695B278592CD00488DEC /* UIImageView+Extensions.swift in Sources */,
 				EB9EAAF72784CC9B006101C6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

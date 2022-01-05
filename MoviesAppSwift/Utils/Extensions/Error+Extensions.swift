@@ -8,7 +8,6 @@
 import Foundation
 
 extension Error {
-    
     func getCustomError(code: Int) -> MovieServiceError{
         switch code {
         case 400:

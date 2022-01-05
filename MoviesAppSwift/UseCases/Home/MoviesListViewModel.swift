@@ -11,14 +11,15 @@ final class MoviesListViewModel{
     
     private var service: MoviesProtocol
     
-    var results: Results? {
+    private var results: Results? {
         didSet{
             if let results = results {
-                movies = results.movies
+                movies.value = results.movies
             }
         }
     }
-    var movies = [Movie]()
+    
+    private(set) var movies = Observer(value: [Movie]())
     
     init(service: MoviesProtocol){
         self.service = service
@@ -26,10 +27,10 @@ final class MoviesListViewModel{
     }
     
     func getMovies(){
-        service.getPopularMovies { results in
+        service.getPopularMovies { [weak self] results in
             switch results{
             case .success(let results):
-                print("Resulst: \(results)")
+                self?.results = results
             case .failure(let e):
                 print("Api Error: \(e.localizedDescription)")
             }

@@ -15,6 +15,8 @@ class MovieTableViewCell: UITableViewCell {
                 title.text = movie.title
                 overview.text = movie.overview
                 rating.text = "Valoración: \(movie.voteAverage)"
+                guard let url = URL(string: Constants.imagesUrl + movie.posterPath) else {return}
+                poster.load(url: url)
             }
         }
     }
