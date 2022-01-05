@@ -39,6 +39,7 @@ class MoviesListViewController: UIViewController, Coordinating {
     
     func reloadTableView(){
         DispatchQueue.main.async {
+            self.tableView.tableFooterView = nil
             self.tableView.reloadData()
         }
     }
@@ -55,6 +56,9 @@ class MoviesListViewController: UIViewController, Coordinating {
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search movie"
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.barStyle = .default
+        self.extendedLayoutIncludesOpaqueBars = true
+
         searchController.searchBar.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0,
                                                                                       leading: 0,
                                                                                       bottom: 0,
@@ -63,8 +67,19 @@ class MoviesListViewController: UIViewController, Coordinating {
         tableView.contentOffset = CGPoint(x: 0, y: searchController.searchBar.frame.size.height)
     }
 
-
 }
+
+// MARK: - ScrollViewDelegate
+extension MoviesListViewController: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scroll = scrollView.contentOffset.y
+        if scroll > (tableView.contentSize.height-100-scrollView.frame.size.height){
+            viewModel.getMovies()
+            tableView.showFooterSpinner(view: view)
+        }
+    }
+}
+
 
 // MARK: - TableDelegates
 extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource{
@@ -87,19 +102,13 @@ extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource{
 extension MoviesListViewController: UISearchControllerDelegate, UISearchBarDelegate{
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchController.isActive = false
+        //searchController.isActive = false
         viewModel.filteredMovies = viewModel.movies.value
         reloadTableView()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {        
-        if searchText != "" {
-            viewModel.filteredMovies = viewModel.movies.value.filter({ movie in
-                return movie.title.lowercased().contains(searchText.lowercased())
-            })
-        }else{
-            viewModel.filteredMovies = viewModel.movies.value
-        }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.filterMovie(searchText: searchText)
         reloadTableView()
     }
     

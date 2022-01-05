@@ -9,7 +9,8 @@ import Foundation
 
 protocol MoviesProtocol{
     
-    func getPopularMovies(completion: @escaping (Result<Results, MovieServiceError>) -> ())
+    func getPopularMovies(page: Int,
+                          completion: @escaping (Result<Results, MovieServiceError>) -> ())
     func searchMovie(with id: Int,
                      params: [String: Any],
                      completion: @escaping (Result<Results, MovieServiceError>) -> ())

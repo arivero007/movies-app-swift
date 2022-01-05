@@ -31,6 +31,7 @@
 		EB9EAB012784D537006101C6 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAB002784D537006101C6 /* Error+Extensions.swift */; };
 		EB9EAB052784D67E006101C6 /* MoviesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAB042784D67E006101C6 /* MoviesProtocol.swift */; };
 		EB9EAB082784D7ED006101C6 /* MoviesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EAB072784D7ED006101C6 /* MoviesManager.swift */; };
+		EBFF3A7327860A19005ECEA6 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFF3A7227860A19005ECEA6 /* UITableView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		EB9EAB002784D537006101C6 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		EB9EAB042784D67E006101C6 /* MoviesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesProtocol.swift; sourceTree = "<group>"; };
 		EB9EAB072784D7ED006101C6 /* MoviesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesManager.swift; sourceTree = "<group>"; };
+		EBFF3A7227860A19005ECEA6 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 			children = (
 				EB9EAB002784D537006101C6 /* Error+Extensions.swift */,
 				EB7D695A278592CD00488DEC /* UIImageView+Extensions.swift */,
+				EBFF3A7227860A19005ECEA6 /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				EB9EAA782784BA35006101C6 /* HomeCoordinator.swift in Sources */,
 				EB9EAB082784D7ED006101C6 /* MoviesManager.swift in Sources */,
 				EB9EAB052784D67E006101C6 /* MoviesProtocol.swift in Sources */,
+				EBFF3A7327860A19005ECEA6 /* UITableView+Extensions.swift in Sources */,
 				EB9EAA7A2784BBF3006101C6 /* MoviesListViewModel.swift in Sources */,
 				EB7D68E927858A6A00488DEC /* Observer.swift in Sources */,
 				EB9EAA702784B724006101C6 /* Coordinator.swift in Sources */,

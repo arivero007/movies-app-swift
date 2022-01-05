@@ -14,8 +14,9 @@ final class MoviesListViewModel{
     private var results: Results? {
         didSet{
             if let results = results {
-                movies.value = results.movies
-                filteredMovies = results.movies
+                page += 1
+                movies.value.append(contentsOf: results.movies)
+                filteredMovies .append(contentsOf: results.movies)
             }
         }
     }
@@ -23,18 +24,37 @@ final class MoviesListViewModel{
     private(set) var movies = Observer(value: [Movie]())
     var filteredMovies = [Movie]()
     
+    private var isFetchingData = false
+    private var page = 1
+    
     init(service: MoviesProtocol){
         self.service = service
         getMovies()
     }
     
+    // MARK: - Filter
+    func filterMovie(searchText: String){
+        if searchText != "" {
+            filteredMovies = movies.value.filter({ movie in
+                return movie.title.lowercased().contains(searchText.lowercased())
+            })
+        }else{
+            filteredMovies = movies.value
+        }
+    }
+    
+    // MARK: - Fetch Movies
     func getMovies(){
-        service.getPopularMovies { [weak self] results in
-            switch results{
-            case .success(let results):
-                self?.results = results
-            case .failure(let e):
-                print("Api Error: \(e.localizedDescription)")
+        if !isFetchingData{
+            isFetchingData = true
+            service.getPopularMovies(page: page) { [weak self] results in
+                switch results{
+                case .success(let results):
+                    self?.results = results
+                case .failure(let e):
+                    print("Api Error: \(e.localizedDescription)")
+                }
+                self?.isFetchingData = false
             }
         }
     }
