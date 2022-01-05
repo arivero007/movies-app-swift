@@ -20,7 +20,7 @@ final class MoviesListViewModel{
             }
         }
     }
-    
+        
     private(set) var movies = Observer(value: [Movie]())
     var filteredMovies = [Movie]()
     
@@ -29,7 +29,6 @@ final class MoviesListViewModel{
     
     init(service: MoviesProtocol){
         self.service = service
-        getMovies()
     }
     
     // MARK: - Filter
@@ -44,15 +43,17 @@ final class MoviesListViewModel{
     }
     
     // MARK: - Fetch Movies
-    func getMovies(){
+    func getMovies(completion: @escaping (MovieServiceError?) -> ()){
         if !isFetchingData{
             isFetchingData = true
             service.getPopularMovies(page: page) { [weak self] results in
                 switch results{
                 case .success(let results):
                     self?.results = results
+                    completion(nil)
                 case .failure(let e):
                     print("Api Error: \(e.localizedDescription)")
+                    completion(e)
                 }
                 self?.isFetchingData = false
             }

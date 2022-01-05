@@ -29,6 +29,23 @@ class MoviesListViewController: UIViewController, Coordinating {
         registerCell()
         setBindings()
         manageSearchController()
+        fetchMovies()
+    }
+    
+    private func fetchMovies(){
+        
+        if NetworkConnectivity.isConnected(){
+            viewModel.getMovies {  [weak self] error in
+                self?.tableView.tableFooterView = nil
+                guard let error = error else {
+                    return
+                }
+                self?.showAlert(title: "Warning", message: "An error has ocurred: \(error.rawValue)")
+            }
+        }else{
+            showAlert(title: "Warning", message: "No internet connection!")
+        }
+        
     }
     
     private func setBindings(){
@@ -39,7 +56,6 @@ class MoviesListViewController: UIViewController, Coordinating {
     
     func reloadTableView(){
         DispatchQueue.main.async {
-            self.tableView.tableFooterView = nil
             self.tableView.reloadData()
         }
     }
@@ -73,7 +89,7 @@ extension MoviesListViewController: UIScrollViewDelegate{
         let scroll = scrollView.contentOffset.y
         if scroll > (tableView.contentSize.height-100-scrollView.frame.size.height){
             if !searchController.isActive{
-                viewModel.getMovies()
+                fetchMovies()
                 tableView.showFooterSpinner(view: view)
             }
         }
