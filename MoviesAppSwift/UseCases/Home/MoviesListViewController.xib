@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="600" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k2b-P1-3sM">
-                    <rect key="frame" x="10" y="44" width="394" height="852"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="500" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k2b-P1-3sM">
+                    <rect key="frame" x="15" y="44" width="384" height="852"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="2ny-0J-aHu"/>
@@ -31,10 +31,10 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="k2b-P1-3sM" secondAttribute="trailing" constant="10" id="LxP-fE-JhK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="k2b-P1-3sM" secondAttribute="trailing" constant="15" id="LxP-fE-JhK"/>
                 <constraint firstAttribute="bottom" secondItem="k2b-P1-3sM" secondAttribute="bottom" id="MKc-SB-jgj"/>
                 <constraint firstItem="k2b-P1-3sM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rAT-kX-zFe"/>
-                <constraint firstItem="k2b-P1-3sM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="sdz-lk-0aO"/>
+                <constraint firstItem="k2b-P1-3sM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="sdz-lk-0aO"/>
             </constraints>
             <point key="canvasLocation" x="139" y="128"/>
         </view>

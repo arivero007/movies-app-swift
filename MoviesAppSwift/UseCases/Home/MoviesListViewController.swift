@@ -17,8 +17,6 @@ class MoviesListViewController: UIViewController, Coordinating {
        let controller = UISearchController(searchResultsController: nil)
         controller.hidesNavigationBarDuringPresentation = true
         controller.obscuresBackgroundDuringPresentation = false
-        controller.searchBar.sizeToFit()
-        controller.searchBar.text = "Search movie"
         
         return controller
     }()
@@ -27,6 +25,7 @@ class MoviesListViewController: UIViewController, Coordinating {
         super.viewDidLoad()
 
         title = "Movies"
+        self.definesPresentationContext = true
         registerCell()
         setBindings()
         manageSearchController()
@@ -52,10 +51,16 @@ class MoviesListViewController: UIViewController, Coordinating {
     }
     
     private func manageSearchController(){
-        let searchBar = searchController.searchBar
         searchController.delegate = self
-        tableView.tableHeaderView = searchBar
-        tableView.contentOffset = CGPoint(x: .zero, y: searchBar.frame.size.height)
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search movie"
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0,
+                                                                                      leading: 0,
+                                                                                      bottom: 0,
+                                                                                      trailing: 25)
+        tableView.tableHeaderView = searchController.searchBar
+        tableView.contentOffset = CGPoint(x: 0, y: searchController.searchBar.frame.size.height)
     }
 
 
@@ -64,7 +69,7 @@ class MoviesListViewController: UIViewController, Coordinating {
 // MARK: - TableDelegates
 extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.movies.value.count
+        return viewModel.filteredMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,13 +77,30 @@ extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         
-        cell.movie = viewModel.movies.value[indexPath.row]
+        cell.movie = viewModel.filteredMovies[indexPath.row]
                 
         return cell
     }
 }
 
 // MARK: - SearchDelegates
-extension MoviesListViewController: UISearchControllerDelegate{
+extension MoviesListViewController: UISearchControllerDelegate, UISearchBarDelegate{
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchController.isActive = false
+        viewModel.filteredMovies = viewModel.movies.value
+        reloadTableView()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {        
+        if searchText != "" {
+            viewModel.filteredMovies = viewModel.movies.value.filter({ movie in
+                return movie.title.lowercased().contains(searchText.lowercased())
+            })
+        }else{
+            viewModel.filteredMovies = viewModel.movies.value
+        }
+        reloadTableView()
+    }
     
 }
