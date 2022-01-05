@@ -7,11 +7,17 @@
 
 import UIKit
 
+enum PushView{
+    case homeView
+    case detailView
+}
+
 protocol Coordinator: AnyObject{
     var navigationController: UINavigationController { get set}
     var childCoordinators: [Coordinator] { get }
     
     func start()
+    func presentView(with data: Any, view: PushView)
 }
 
 protocol Coordinating{

@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeCoordinator: Coordinator{
+    
     var navigationController: UINavigationController
     
     var childCoordinators: [Coordinator] = []
@@ -21,6 +22,18 @@ class HomeCoordinator: Coordinator{
         vc.coordinator = self
         vc.viewModel = MoviesListViewModel(service: MoviesManager())
         navigationController.setViewControllers([vc], animated: false)
+    }
+    
+    func presentView(with data: Any, view: PushView) {
+        switch view {
+        case .homeView:
+            print("Presenting HomeView")
+        case .detailView:
+            let vc = MovieDetailViewController(nibName: "MovieDetailViewController", bundle: Bundle.main)
+            vc.coordinator = self
+            vc.viewModel = MovieDetailViewModel(movie: data as! Movie)
+            navigationController.pushViewController(vc, animated: true)
+        }
     }
     
 }

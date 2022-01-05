@@ -102,6 +102,8 @@ extension MoviesListViewController: UITableViewDataSource{
 extension MoviesListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        coordinator?.presentView(with: viewModel.filteredMovies[indexPath.row], view: .detailView)
     }
 }
 
