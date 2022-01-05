@@ -15,11 +15,13 @@ final class MoviesListViewModel{
         didSet{
             if let results = results {
                 movies.value = results.movies
+                filteredMovies = results.movies
             }
         }
     }
     
     private(set) var movies = Observer(value: [Movie]())
+    var filteredMovies = [Movie]()
     
     init(service: MoviesProtocol){
         self.service = service

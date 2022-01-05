@@ -13,15 +13,26 @@ class MoviesListViewController: UIViewController, Coordinating {
     
     @IBOutlet weak var tableView: UITableView!
     
+    lazy var searchController: UISearchController = {
+       let controller = UISearchController(searchResultsController: nil)
+        controller.hidesNavigationBarDuringPresentation = true
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.searchBar.sizeToFit()
+        controller.searchBar.text = "Search movie"
+        
+        return controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Movies"
         registerCell()
         setBindings()
+        manageSearchController()
     }
     
-    func setBindings(){
+    private func setBindings(){
         viewModel.movies.addObserver { [weak self] movies in
             self?.reloadTableView()
         }
@@ -39,10 +50,18 @@ class MoviesListViewController: UIViewController, Coordinating {
         self.tableView.register(cell,
                                 forCellReuseIdentifier: "movieCell")
     }
+    
+    private func manageSearchController(){
+        let searchBar = searchController.searchBar
+        searchController.delegate = self
+        tableView.tableHeaderView = searchBar
+        tableView.contentOffset = CGPoint(x: .zero, y: searchBar.frame.size.height)
+    }
 
 
 }
 
+// MARK: - TableDelegates
 extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.movies.value.count
@@ -57,4 +76,9 @@ extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource{
                 
         return cell
     }
+}
+
+// MARK: - SearchDelegates
+extension MoviesListViewController: UISearchControllerDelegate{
+    
 }
