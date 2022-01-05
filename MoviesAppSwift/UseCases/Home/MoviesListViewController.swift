@@ -56,8 +56,6 @@ class MoviesListViewController: UIViewController, Coordinating {
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search movie"
         searchController.searchBar.sizeToFit()
-        searchController.searchBar.barStyle = .default
-        self.extendedLayoutIncludesOpaqueBars = true
 
         searchController.searchBar.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0,
                                                                                       leading: 0,
@@ -74,15 +72,17 @@ extension MoviesListViewController: UIScrollViewDelegate{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scroll = scrollView.contentOffset.y
         if scroll > (tableView.contentSize.height-100-scrollView.frame.size.height){
-            viewModel.getMovies()
-            tableView.showFooterSpinner(view: view)
+            if !searchController.isActive{
+                viewModel.getMovies()
+                tableView.showFooterSpinner(view: view)
+            }
         }
     }
 }
 
 
-// MARK: - TableDelegates
-extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource{
+// MARK: - TableViewDataSource
+extension MoviesListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.filteredMovies.count
     }
@@ -98,11 +98,19 @@ extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
+// MARK: - TableViewDataDelegate
+extension MoviesListViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+
 // MARK: - SearchDelegates
 extension MoviesListViewController: UISearchControllerDelegate, UISearchBarDelegate{
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        //searchController.isActive = false
+        searchController.isActive = false
         viewModel.filteredMovies = viewModel.movies.value
         reloadTableView()
     }
