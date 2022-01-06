@@ -11,19 +11,17 @@ class MovieDetailViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     var viewModel: MovieDetailViewModel!
     
-    @IBOutlet private weak var movieTitle: UILabel!
-    @IBOutlet private weak var overview: UILabel!
-    @IBOutlet private weak var rating: UILabel!
-    @IBOutlet private weak var poster: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var overview: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var poster: UIImageView!
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         loadMovie()
-        
     }
     
     func loadMovie(){

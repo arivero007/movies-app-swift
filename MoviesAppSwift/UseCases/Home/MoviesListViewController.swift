@@ -33,7 +33,6 @@ class MoviesListViewController: UIViewController, Coordinating {
     }
     
     private func fetchMovies(){
-        
         if NetworkConnectivity.isConnected(){
             viewModel.getMovies {  [weak self] error in
                 self?.tableView.tableFooterView = nil

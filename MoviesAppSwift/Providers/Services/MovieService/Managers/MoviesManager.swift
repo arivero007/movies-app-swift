@@ -12,13 +12,4 @@ class MoviesManager: MoviesProtocol{
         let url = Constants.baseUrl + Constants.EndPoints.urlPopularMovies + Constants.apiKeyQueryItem + "&page=\(page)"
         MovieServiceWrapper.shared.request(url, method: .get, completionHandler: completion)
     }
-    
-    func searchMovie(with id: Int, params: [String: Any], completion: @escaping (Result<Results, MovieServiceError>) -> ()) {
-        let url = Constants.baseUrl + Constants.EndPoints.urlPopularMovies
-
-        MovieServiceWrapper.shared.request(url,
-                                           method: .get,
-                                           parameters: params,
-                                           completionHandler: completion)
-    }
 }

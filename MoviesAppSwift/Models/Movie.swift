@@ -19,6 +19,13 @@ struct Results: Codable{
         case totalMovies = "total_results"
         case totalPages = "total_pages"
     }
+    
+    init(movies: [Movie]) {
+        page = 1
+        self.movies = movies
+        totalMovies = 0
+        totalPages = 0
+    }
 }
 
 // MARK: - Result
@@ -35,5 +42,13 @@ struct Movie: Codable {
         case id
         case title
         case voteAverage = "vote_average"
+    }
+    
+    init(title: String){
+        posterPath = ""
+        overview = ""
+        id = 0
+        self.title = title
+        voteAverage = 0
     }
 }

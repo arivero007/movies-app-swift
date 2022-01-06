@@ -24,5 +24,4 @@ extension Error {
             return .genericError
         }
     }
-    
 }
