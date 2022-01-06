@@ -20,7 +20,7 @@ final class MoviesListViewModel{
             }
         }
     }
-        
+    
     private(set) var movies = Observer(value: [Movie]())
     var filteredMovies = [Movie]()
     
@@ -59,5 +59,6 @@ final class MoviesListViewModel{
             }
         }
     }
+    
     
 }

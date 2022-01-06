@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		EB7D68E927858A6A00488DEC /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D68E827858A6A00488DEC /* Observer.swift */; };
-		EB7D695B278592CD00488DEC /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D695A278592CD00488DEC /* UIImageView+Extensions.swift */; };
 		EB9CE49C27870C5A00858D36 /* MoviesListVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9CE49B27870C5A00858D36 /* MoviesListVMTests.swift */; };
 		EB9CE49F27870CD300858D36 /* MoviesManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9CE49E27870CD300858D36 /* MoviesManagerMock.swift */; };
 		EB9CE4A22787154A00858D36 /* MovieDetailVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9CE4A12787154A00858D36 /* MovieDetailVMTests.swift */; };
 		EB9CE4A42787160000858D36 /* MovieDetailVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9CE4A32787160000858D36 /* MovieDetailVCTests.swift */; };
 		EB9CE4A72787196D00858D36 /* Error+Extensions+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9CE4A62787196D00858D36 /* Error+Extensions+Tests.swift */; };
+		EB9CE4AA27872B0E00858D36 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EB9CE4A927872B0E00858D36 /* SDWebImage */; };
 		EB9EA99F2784440F006101C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EA99E2784440F006101C6 /* AppDelegate.swift */; };
 		EB9EA9A12784440F006101C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EA9A02784440F006101C6 /* SceneDelegate.swift */; };
 		EB9EA9A827844411006101C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9EA9A727844411006101C6 /* Assets.xcassets */; };
@@ -63,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		EB7D68E827858A6A00488DEC /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
-		EB7D695A278592CD00488DEC /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		EB9CE49B27870C5A00858D36 /* MoviesListVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListVMTests.swift; sourceTree = "<group>"; };
 		EB9CE49E27870CD300858D36 /* MoviesManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesManagerMock.swift; sourceTree = "<group>"; };
 		EB9CE4A12787154A00858D36 /* MovieDetailVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVMTests.swift; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9CE4AA27872B0E00858D36 /* SDWebImage in Frameworks */,
 				EB9EAAFE2784D267006101C6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				EB9EAB002784D537006101C6 /* Error+Extensions.swift */,
-				EB7D695A278592CD00488DEC /* UIImageView+Extensions.swift */,
 				EBFF3A7227860A19005ECEA6 /* UITableView+Extensions.swift */,
 				EBFF3B5D27862CB5005ECEA6 /* UIViewController+Extensions.swift */,
 			);
@@ -358,6 +357,7 @@
 			name = MoviesAppSwift;
 			packageProductDependencies = (
 				EB9EAAFD2784D267006101C6 /* Alamofire */,
+				EB9CE4A927872B0E00858D36 /* SDWebImage */,
 			);
 			productName = MoviesAppSwift;
 			productReference = EB9EA99B2784440F006101C6 /* MoviesAppSwift.app */;
@@ -434,6 +434,7 @@
 			mainGroup = EB9EA9922784440F006101C6;
 			packageReferences = (
 				EB9EAAFC2784D267006101C6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EB9CE4A827872B0E00858D36 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = EB9EA99C2784440F006101C6 /* Products */;
 			projectDirPath = "";
@@ -498,7 +499,6 @@
 				EB9EAAFB2784D0F3006101C6 /* MovieServiceError.swift in Sources */,
 				EB9EAA842784C079006101C6 /* MovieTableViewCell.swift in Sources */,
 				EB9EAA752784B8E4006101C6 /* MoviesListViewController.swift in Sources */,
-				EB7D695B278592CD00488DEC /* UIImageView+Extensions.swift in Sources */,
 				EBFF3AE727861519005ECEA6 /* MovieDetailViewController.swift in Sources */,
 				EB9EAAF72784CC9B006101C6 /* Constants.swift in Sources */,
 			);
@@ -848,6 +848,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EB9CE4A827872B0E00858D36 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		EB9EAAFC2784D267006101C6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -859,6 +867,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EB9CE4A927872B0E00858D36 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB9CE4A827872B0E00858D36 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		EB9EAAFD2784D267006101C6 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EB9EAAFC2784D267006101C6 /* XCRemoteSwiftPackageReference "Alamofire" */;

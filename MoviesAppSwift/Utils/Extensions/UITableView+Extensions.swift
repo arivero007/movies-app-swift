@@ -8,8 +8,8 @@
 import UIKit
 
 extension UITableView{
-    func showFooterSpinner(view: UIView){
-        let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
+    func showFooterSpinner(width: CGFloat){
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 100))
         
         let spinner = UIActivityIndicatorView()
         spinner.center = footer.center

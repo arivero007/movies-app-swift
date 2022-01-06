@@ -41,10 +41,7 @@ class MoviesListViewController: UIViewController, Coordinating {
                 }
                 self?.showAlert(title: "Warning", message: "An error has ocurred: \(error.rawValue)")
             }
-        }else{
-            showAlert(title: "Warning", message: "No internet connection!")
         }
-        
     }
     
     private func setBindings(){
@@ -89,7 +86,7 @@ extension MoviesListViewController: UIScrollViewDelegate{
         if scroll > (tableView.contentSize.height-100-scrollView.frame.size.height){
             if !searchController.isActive{
                 fetchMovies()
-                tableView.showFooterSpinner(view: view)
+                tableView.showFooterSpinner(width: scrollView.frame.size.height)
             }
         }
     }

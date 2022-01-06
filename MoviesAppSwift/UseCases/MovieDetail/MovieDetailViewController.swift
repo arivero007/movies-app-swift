@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieDetailViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
@@ -29,7 +30,7 @@ class MovieDetailViewController: UIViewController, Coordinating {
         overview.text = viewModel.movie.overview
         rating.text = "Valoración: \(viewModel.movie.voteAverage)"
         guard let url = URL(string: Constants.imagesUrl + viewModel.movie.posterPath) else{return}
-        poster.load(url: url)
+        poster.sd_setImage(with: url, placeholderImage: UIImage(named: "default-movie"))
     }
 
 }
